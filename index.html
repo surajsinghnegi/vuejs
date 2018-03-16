@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<style type="text/css" media="screen">
+		.true{background: red}	
+    .red{background: red}
+	</style>
+
+</head>
+<body>
+
+<div id="example">
+  <div v-bind:style="active">asasd
+  </div>
+</div>
+
+
+<form>
+  <input type="text" value="sdfdf" class="example" name="">
+  <input type="submit">
+</form>
+
+<form>
+  <input type="text" value="sdfdf" class="example" name="">
+  <input type="submit">
+</form>
+
+</body>
+<script src="vue.js"></script>
+<script>
+document.forms[1].submit();
+   
+
+var vm = new Vue({
+  el: '#example',
+  data: {
+    message: 'Hello',
+    active:{
+      color:'red',
+      fontSize: '20px'
+    },
+    red:{
+      fontSize:'40px'
+    }
+  },
+
+  computed: {
+    // a computed getter
+    reversedMessage: function () {
+      // `this` points to the vm instance
+      return  Date.now()
+    }
+  }
+})
+
+
+</script>
+</html>
