@@ -1,0 +1,15 @@
+#punchbag{
+  text-align: center;
+
+}
+#punchbag img{
+  width: 20%
+}
+#control{text-align: center;}
+#progress{width: 300px;margin:auto; border: 1px solid #000}
+.progress{width: 100%; background:red; height: 20px;}
+.punch{    position: absolute;
+    left: 40%;
+    top: 12%;
+
+   }

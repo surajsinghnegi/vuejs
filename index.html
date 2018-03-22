@@ -1,54 +1,60 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title></title>
-	<style type="text/css" media="screen">
-		.true{background: red}	
-    .red{background: red}
-	</style>
-
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Vuejs punch bag game</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div id="App">
+          
+          <div id="punchbag">
+                <img  src="image/punchbag.png">
+                <img v-if="punch==true"  src="image/punch.png"  class="punch">
+          </div>
+          <div id="progress">
+                <div class='progress' v-bind:style="{width:progress+'%'}">
+                </div>
+          </div>
+          <br>
+          <div id="control">
+            <button type="button"  v-if="punchButton==true" v-on:click="punch2">Punch</button>
+            <button type="button" v-on:click="retry">Retry</button>
+          </div>
 
-<div id="example">
-  <div v-bind:style="active">asasd
   </div>
-</div>
-
-
-<form>
-  <input type="text" value="sdfdf" class="example" name="">
-  <input type="submit">
-</form>
-
 </body>
 <script src="vue.js"></script>
 <script>
-document.forms[1].submit();
-   var vm = new Vue({
-  el: '#example',
-  data: {
-    message: 'Hello',
-    active:{
-      color:'red',
-      fontSize: '20px'
+  var vue  = new Vue({
+    el:"#App",
+    data:{
+      progress:100,
+      punch:false,
+      punchButton:true,
+      retryButton:true,
     },
-    red:{
-      fontSize:'40px'
+    methods:{
+      punch2:function()
+      {
+        this.progress -=10;
+        if(this.progress===0)
+        {
+            this.punchButton = false;
+            this.punch = true;
+        }
+      },
+      retry:function()
+      {
+        this.progress = 100,
+        this.punchButton = true;
+        this.punch = false;
+      }
     }
-  },
-
-  computed: {
-    // a computed getter
-    reversedMessage: function () {
-      // `this` points to the vm instance
-      return  Date.now()
-    }
-  }
-})
-
-
+  })
 </script>
+
+  
+</style>
 </html>
